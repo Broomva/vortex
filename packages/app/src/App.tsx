@@ -33,7 +33,6 @@ import { AlertDisplay, OAuthRequestDialog } from '@backstage/core-components';
 import { catalogEntityCreatePermission } from '@backstage/plugin-catalog-common/alpha';
 import { CatalogGraphPage } from '@backstage/plugin-catalog-graph';
 import { RequirePermission } from '@backstage/plugin-permission-react';
-import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const app = createApp({
   apis,
@@ -101,8 +100,8 @@ export default app.createRoot(
   <>
     <AlertDisplay />
     <OAuthRequestDialog />
-    <SpeedInsights />
-    <Analytics />
+    {/* <SpeedInsights /> */}
+    {/* <Analytics /> */}
     <AppRouter>
       <Root>{routes}</Root>
     </AppRouter>
