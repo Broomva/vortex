@@ -9,6 +9,9 @@ yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
 
+#app-config
+app-config.yaml
+
 # Coverage directory generated when running tests with coverage
 coverage
 
