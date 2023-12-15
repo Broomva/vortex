@@ -1,10 +1,9 @@
 app:
-  title: Scaffolded Backstage App
+  title: Vortex Backstage Catalog
   baseUrl: http://localhost:3000
 
 organization:
-  name: My Company
-
+  name: Vortex
 backend:
   # Used for enabling authentication, secret is shared by all backend plugins
   # See https://backstage.io/docs/auth/service-to-service-auth for
@@ -28,14 +27,14 @@ backend:
   # This is for local development only, it is not recommended to use this in production
   # The production database configuration is stored in app-config.production.yaml
   database:
-    client: better-sqlite3
-    connection: ':memory:'
-    # client: pg
-    # connection:
-    #   host: ep-tight-firefly-83005847-pooler.us-east-1.postgres.vercel-storage.com
-    #   port: 5432
-    #   user: default
-    #   password: Vwe1hM0ZQxaY
+    # client: better-sqlite3
+    # connection: ':memory:'
+    client: pg
+    connection:
+      host: ${POSTGRES_HOST}
+      port: ${POSTGRES_PORT}
+      user: ${POSTGRES_USER}
+      password: ${POSTGRES_PASSWORD}
   # workingDirectory: /tmp # Use this to configure a working directory for the scaffolder, defaults to the OS temp-dir
 
 integrations:
@@ -69,8 +68,12 @@ techdocs:
     type: 'local' # Alternatives - 'googleGcs' or 'awsS3'. Read documentation for using alternatives.
 
 auth:
-  # see https://backstage.io/docs/auth/ to learn about auth providers
-  providers: {}
+  environment: development
+  providers:
+    github:
+      development:
+        clientId: ${GITHUB_CLIENT_ID}
+        clientSecret: ${GITHUB_CLIENT_SECRET}
 
 scaffolder:
   # see https://backstage.io/docs/features/software-templates/configuration for software template options
