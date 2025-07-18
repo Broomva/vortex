@@ -76,7 +76,7 @@ setuptools.setup(
         "openai",
         "sqlalchemy",
         "psycopg2-binary",
-        "pyautogen",
+        "ag2",
         "bs4",
         "langchainhub",
         "langchain-community",
